@@ -20,9 +20,9 @@ namespace Business.Concrete
 
         public void Add(Car car)
         {
-            if (car.Description.Length<5)
+            if (car.Description.Length<2)
             {
-                Console.WriteLine("Açıklama Kısmı minimum 5 karakterden oluşmalıdır.");
+                Console.WriteLine("Açıklama Kısmı minimum 2 karakterden oluşmalıdır.");
                 return;
             }
             else if (car.DailyPrice<0)
@@ -46,9 +46,14 @@ namespace Business.Concrete
             return _carDal.GetAll();
         }
 
-        public List<Car> GetById(int brandId)
+        public List<Car> GetCarsByBrandId(int brandId)
         {
-            return _carDal.GetById(brandId);
+            return _carDal.GetAll(c=> c.BrandId == brandId);
+        }
+
+        public List<Car> GetCarsByColorId(int colorId)
+        {
+            return _carDal.GetAll(c=> c.ColorId == colorId);
         }
 
         public void Update(Car car)
