@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
-    public class CarManager : ICarService
+    public class CarManager //: ICarService
     {
         ICarDal _carDal;
 
