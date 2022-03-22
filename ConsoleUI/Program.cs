@@ -12,7 +12,28 @@ namespace ConsoleUI
             //CarTest();
             //BrandTest();
             //ColorTest();
-            CarDetailsTest();
+            //CarDetailsTest();
+            //Customer user = new Customer();
+
+            //user.FirstName = "Can";
+            //user.LastName = "YMG";
+            //user.Email = "mccankaya45hotmail.com";
+            //user.Password = "123456";
+
+            //CustomerManager userManager = new CustomerManager(new EfCustomerDal());
+            //userManager.Add(user);
+
+            Car car = new Car();
+
+            car.BrandId = 1;
+            car.ColorId = 1;
+            car.DailyPrice = 239;
+            car.Description = "deneme aracı";
+            car.ModelYear = 1999;
+
+            CarManager carManager = new CarManager(new EfCarDal());
+            carManager.Add(car);
+
 
         }
 
