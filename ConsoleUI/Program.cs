@@ -13,16 +13,47 @@ namespace ConsoleUI
             //BrandTest();
             //ColorTest();
             //CarDetailsTest();
-            //Customer user = new Customer();
+            //UserAddTest();
+            //CarAddTest();
+            //UserDeleteTest();
+            //UserGetAllTest();
+            //CustomerGetAll();
 
-            //user.FirstName = "Can";
-            //user.LastName = "YMG";
-            //user.Email = "mccankaya45hotmail.com";
-            //user.Password = "123456";
+        }
 
-            //CustomerManager userManager = new CustomerManager(new EfCustomerDal());
-            //userManager.Add(user);
+        private static void CustomerGetAll()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
 
+            foreach (var item in customerManager.GetAll().Data)
+            {
+                Console.WriteLine("Customer Id : {0}\nCompany Name : {1}", item.UserId, item.CompanyName);
+                Console.WriteLine("------------------------------");
+            }
+        }
+
+        private static void UserGetAllTest()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+
+            foreach (var user in userManager.GetAll().Data)
+            {
+                Console.WriteLine("User Id : {0}\nFirst Name : {1}\nLast Name : {2}\nEmail : {3}\nPassword: {4}", user.UserId, user.FirstName, user.LastName, user.Email, user.Password);
+                Console.WriteLine("------------------------------");
+
+            }
+        }
+
+        private static void UserDeleteTest()
+        {
+            User user = new User();
+            user.UserId = 6;
+            UserManager userManager = new UserManager(new EfUserDal());
+            userManager.Delete(user);
+        }
+
+        private static void CarAddTest()
+        {
             Car car = new Car();
 
             car.BrandId = 1;
@@ -33,8 +64,19 @@ namespace ConsoleUI
 
             CarManager carManager = new CarManager(new EfCarDal());
             carManager.Add(car);
+        }
 
+        private static void UserAddTest()
+        {
+            User user = new User();
 
+            user.FirstName = "Deneme";
+            user.LastName = "deneme1";
+            user.Password = "ölksdavşlkmaşls";
+            user.Email = "şövlödsfl";
+
+            UserManager userManager = new UserManager(new EfUserDal());
+            userManager.Add(user);
         }
 
         private static void CarDetailsTest()
