@@ -18,7 +18,14 @@ namespace ConsoleUI
             //UserDeleteTest();
             //UserGetAllTest();
             //CustomerGetAll();
+            //UserGetById();
+        }
 
+        private static void UserGetById()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+            var result = userManager.GetById(1);
+            Console.WriteLine(result.Data.FirstName);
         }
 
         private static void CustomerGetAll()
