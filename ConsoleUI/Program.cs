@@ -19,6 +19,39 @@ namespace ConsoleUI
             //UserGetAllTest();
             //CustomerGetAll();
             //UserGetById();
+            //CustomerAddTest();
+            //CustomerGetByUserId();
+            //CustomerGetByCustomerId();
+            //CustomerUpdateTest();
+        }
+
+        private static void CustomerUpdateTest()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            customerManager.Update(new Customer { CustomerId = 1, UserId = 2, CompanyName = "Updated CompanyName" });
+        }
+
+        private static void CustomerGetByCustomerId()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            var result = customerManager.GetById(1);
+            Console.WriteLine("Customer Id : {0}\nUser Id : {1}\nCompany Name : {2}", result.Data.CustomerId, result.Data.UserId, result.Data.CompanyName);
+        }
+
+        private static void CustomerGetByUserId()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+
+            foreach (var item in customerManager.GetByUserId(1).Data)
+            {
+                Console.WriteLine("User Id : {0} \nCompany Name : {1}", item.UserId, item.CompanyName);
+            }
+        }
+
+        private static void CustomerAddTest()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            customerManager.Add(new Customer { UserId = 1, CompanyName = "Deneme CompanyName" });
         }
 
         private static void UserGetById()

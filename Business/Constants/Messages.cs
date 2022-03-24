@@ -8,10 +8,37 @@ namespace Business.Constants
 {
     public static class Messages
     {
+        //Success CarService Messages
         public static string CarAdded = "Araç Eklendi.";
         public static string CarUpdated = "Araç Güncellendi.";
         public static string CarDeleted = "Araç Silindi.";
-        public static string userListed = "Kullanıcılar listelendi.";
+        public static string CarGetById = "Araç Id'ye göre getirildi.";
+        public static string CarGetByBrandId = "Araçlar Model Id'ye göre getirildi.";
+        public static string CarGetByColorId = "Araçlar Color Id'ye göre getirildi.";
+        public static string CarGetCarDetails = "Araç Detayları getirildi.";
+        public static string CarsGetAll = "Tüm Araçlar listelendi.";
+
+        //Success BrandService Messages
+        public static string BrandAdded ="Marka Eklendi.";
+        public static string BrandDeleted ="Marka Silindi.";
+        public static string BrandUpdated ="Marka Güncellendi.";
+        public static string BrandsGetAll ="Markalar Listelendi.";
+        public static string BrandGetById ="Marka Id'ye göre getirildi.";
+
+        //Success UserService Messages
+        public static string UserListed = "Kullanıcılar listelendi.";
+        public static string UserAdded = "Kullanıcı Eklendi.";
+        public static string UserUpdated = "Kullanıcı Güncellendi";
+        public static string UsersGetAll = "Kullanıcılar listelendi.";
+        public static string UserGetById = "Kullanıcı Id'ye göre getirildi.";
+
+        //Success CustomerService Messages
+        public static string CustomerAdded=("Müşteri Eklendi.");
+        public static string CustomerDeleted=("Müşteri Silindi.");
+        public static string CustomerUpdated=("Müşteri Güncellendi.");
+        public static string CustomerGetAll=("Müşteriler Listelendi.");
+        public static string CustomerGetById=("Müşteri Id'ye göre getirildi.");
+        public static string CustomerGetByUserId=("Müşteri UserId'ye göre getirildi.");
 
     }
 }

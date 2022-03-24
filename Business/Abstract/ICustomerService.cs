@@ -15,5 +15,6 @@ namespace Business.Abstract
         IResult Update(Customer customer);
         IDataResult<List<Customer>> GetAll();
         IDataResult<Customer> GetById(int customerId);
+        IDataResult<List<Customer>> GetByUserId(int userId);
     }
 }
