@@ -19,7 +19,7 @@ namespace ConsoleUI
             //UserGetAllTest();
             //CustomerGetAll();
             //UserGetById();
-            //CustomerAddTest();
+            CustomerAddTest();
             //CustomerGetByUserId();
             //CustomerGetByCustomerId();
             //CustomerUpdateTest();
