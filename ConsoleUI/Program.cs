@@ -19,10 +19,23 @@ namespace ConsoleUI
             //UserGetAllTest();
             //CustomerGetAll();
             //UserGetById();
-            CustomerAddTest();
+            //CustomerAddTest();
             //CustomerGetByUserId();
             //CustomerGetByCustomerId();
             //CustomerUpdateTest();
+            //RentalAddTest();
+
+        }
+
+        private static void RentalAddTest()
+        {
+            Rental rental = new Rental();
+            rental.CarId = 3;
+            rental.CustomerId = 1;
+            rental.RentDate = new DateTime(2022, 4, 12);
+
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            rentalManager.Add(rental);
         }
 
         private static void CustomerUpdateTest()
