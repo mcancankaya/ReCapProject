@@ -36,13 +36,13 @@ namespace WebAPI
             services.AddSingleton<IColorService, ColorManager>();
             services.AddSingleton<ICustomerService, CustomerManager>();
             services.AddSingleton<IRentalService, RentalManager>();
-            //services.AddSingleton<IUserService, UserManager>();
+            services.AddSingleton<IUserService, UserManager>();
             services.AddSingleton<ICarDal, EfCarDal>();
             services.AddSingleton<IBrandDal,EfBrandDal>();
             services.AddSingleton<IColorDal,EfColorDal>();
             services.AddSingleton<ICustomerDal, EfCustomerDal>();
             services.AddSingleton<IRentalDal, EfRentalDal>();
-            //services.AddSingleton<IUserDal, EfUserDal>();
+            services.AddSingleton<IUserDal, EfUserDal>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
