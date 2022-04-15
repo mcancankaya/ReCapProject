@@ -1,3 +1,6 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using Business.DependencyResolvers.Autofac;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -18,6 +21,12 @@ namespace WebAPI
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                //Bu yapý .Net'in container ý yerine  Autofac kullandýrma konfigürasyonu
+                .UseServiceProviderFactory(new AutofacServiceProviderFactory())
+                .ConfigureContainer<ContainerBuilder>(builder=> {
+                    builder.RegisterModule(new AutofacBusinessModule()); //Autofac modülümüzü tanýtýyoruz.
+                })
+
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
