@@ -1,4 +1,5 @@
-﻿using Core.Utilities.Results;
+﻿using Core.Utilities.Business;
+using Core.Utilities.Results;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace Core.Utilities.Helpers.FileHelper
     {
         public IResult Delete(string filePath)
         {
-            var result = CheckIfFileExist(filePath);
+            var result = CheckIfFileExists(filePath);
             if (!result.Success)
             {
                 return result;
@@ -25,31 +26,62 @@ namespace Core.Utilities.Helpers.FileHelper
 
         public IResult Update(IFormFile file, string filePath, string root)
         {
-            throw new NotImplementedException();
+            var resultOfDelete = Delete(filePath);
+
+            if (!resultOfDelete.Success)
+            {
+                return resultOfDelete;
+            }
+
+            var resultOfUpload = Upload(file, root);
+            return new SuccessResult(resultOfUpload.Message);
         }
 
         public IResult Upload(IFormFile file, string root)
         {
+            var result = BusinessRules.Run(CheckIfFileEnter(file),
+                CheckIfFileExtensionValid(Path.GetExtension(file.FileName)));
+
+            if (result != null)
+            {
+                return result;
+            }
+
             string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
 
-            
             CheckIfDirectoryExists(root);
-            
             CreateFile(root + fileName, file);
-
             return new SuccessResult(fileName);
         }
 
         //Rules
-
-        private IResult CheckIfFileExist(string filePath)
+        private IResult CheckIfFileExists(string filePath)
         {
             if (File.Exists(filePath))
             {
                 return new SuccessResult();
             }
-            return new ErrorResults("Bu Dosya Mevcut Değil.");
+            return new ErrorResults("Böyle bir dosya mevcut değil");
         }
+
+        private IResult CheckIfFileEnter(IFormFile file)
+        {
+            if (file.Length < 0)
+            {
+                return new ErrorResults("Dosya girilmemiş");
+            }
+            return new SuccessResult();
+        }
+
+        private IResult CheckIfFileExtensionValid(string extension)
+        {
+            if (extension == ".jpg" || extension == ".png" || extension == ".jpeg" || extension == ".webp")
+            {
+                return new SuccessResult();
+            }
+            return new ErrorResults("Dosya uzantısı geçerli değil");
+        }
+
         private void CheckIfDirectoryExists(string root)
         {
             if (!Directory.Exists(root))
@@ -67,5 +99,6 @@ namespace Core.Utilities.Helpers.FileHelper
                 fileStream.Flush(); //Tampondaki bilgilerin boşaltılmasını ve stream dosyasının güncellenmesini sağlar.
             }
         }
+
     }
 }

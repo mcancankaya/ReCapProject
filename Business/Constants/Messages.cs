@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,9 @@ namespace Business.Constants
         public static string CarUpdated = "Araç Güncellendi.";
         public static string CarDeleted = "Araç Silindi.";
         public static string CarGetById = "Araç Id'ye göre getirildi.";
+
+       
+
         public static string CarGetByBrandId = "Araçlar Model Id'ye göre getirildi.";
         public static string CarGetByColorId = "Araçlar Color Id'ye göre getirildi.";
         public static string CarGetCarDetails = "Araç Detayları getirildi.";
@@ -40,5 +44,14 @@ namespace Business.Constants
         public static string CustomerGetById=("Müşteri Id'ye göre getirildi.");
         public static string CustomerGetByUserId=("Müşteri UserId'ye göre getirildi.");
 
+        //Success CarImageService Messages
+        public static string CarImageDeleted = "Resim Silindi.";
+        public static string CarImageAdded = "Resim Eklendi.";
+        public static string CarImageUpdated = "Resim Güncellendi.";
+        public static string CarImagesListed = "Resimler Listelendi.";
+        public static string CarImageLimitExceded = "Resim Yükleme Limiti Aşıldı.";
+
+        public static string CarSelectionError { get; internal set; }
+        public static string CarSelectionErrorForCarImages = "Lütfen Resim Eklemek İstediğiniz Arabayı Seçiniz.";
     }
 }
