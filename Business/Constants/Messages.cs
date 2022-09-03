@@ -16,7 +16,7 @@ namespace Business.Constants
         public static string CarDeleted = "Araç Silindi.";
         public static string CarGetById = "Araç Id'ye göre getirildi.";
 
-       
+
 
         public static string CarGetByBrandId = "Araçlar Model Id'ye göre getirildi.";
         public static string CarGetByColorId = "Araçlar Color Id'ye göre getirildi.";
@@ -24,11 +24,11 @@ namespace Business.Constants
         public static string CarsGetAll = "Tüm Araçlar listelendi.";
 
         //Success BrandService Messages
-        public static string BrandAdded ="Marka Eklendi.";
-        public static string BrandDeleted ="Marka Silindi.";
-        public static string BrandUpdated ="Marka Güncellendi.";
-        public static string BrandsGetAll ="Markalar Listelendi.";
-        public static string BrandGetById ="Marka Id'ye göre getirildi.";
+        public static string BrandAdded = "Marka Eklendi.";
+        public static string BrandDeleted = "Marka Silindi.";
+        public static string BrandUpdated = "Marka Güncellendi.";
+        public static string BrandsGetAll = "Markalar Listelendi.";
+        public static string BrandGetById = "Marka Id'ye göre getirildi.";
 
         //Success UserService Messages
         public static string UserListed = "Kullanıcılar listelendi.";
@@ -38,12 +38,12 @@ namespace Business.Constants
         public static string UserGetById = "Kullanıcı Id'ye göre getirildi.";
 
         //Success CustomerService Messages
-        public static string CustomerAdded=("Müşteri Eklendi.");
-        public static string CustomerDeleted=("Müşteri Silindi.");
-        public static string CustomerUpdated=("Müşteri Güncellendi.");
-        public static string CustomerGetAll=("Müşteriler Listelendi.");
-        public static string CustomerGetById=("Müşteri Id'ye göre getirildi.");
-        public static string CustomerGetByUserId=("Müşteri UserId'ye göre getirildi.");
+        public static string CustomerAdded = ("Müşteri Eklendi.");
+        public static string CustomerDeleted = ("Müşteri Silindi.");
+        public static string CustomerUpdated = ("Müşteri Güncellendi.");
+        public static string CustomerGetAll = ("Müşteriler Listelendi.");
+        public static string CustomerGetById = ("Müşteri Id'ye göre getirildi.");
+        public static string CustomerGetByUserId = ("Müşteri UserId'ye göre getirildi.");
 
         //Success CarImageService Messages
         public static string CarImageDeleted = "Resim Silindi.";
@@ -52,16 +52,17 @@ namespace Business.Constants
         public static string CarImagesListed = "Resimler Listelendi.";
         public static string CarImageLimitExceded = "Resim Yükleme Limiti Aşıldı.";
 
-        public static string CarSelectionError { get; internal set; }
-        public static string UserNotFound { get; internal set; }
-        public static string PasswordError { get; internal set; }
-        public static string SuccessfulLogin { get; internal set; }
-        public static string UserAlreadyExists { get; internal set; }
-        public static string AccessTokenCreated { get; internal set; }
+
+        public static string UserNotFound = "Kullanıcı Bulunamadı.";
+
+        public static string PasswordError = "Parola Hatası.";
+        public static string SuccessfulLogin = "Giriş Başarılı.";
+        public static string UserAlreadyExists = "Kullanıcı Mevcut.";
+        public static string AccessTokenCreated = "Access Token Created.";
 
         public static string AuthorizationDenied = "Yetkiniz Yok";
 
-        public static string CarSelectionErrorForCarImages = "Lütfen Resim Eklemek İstediğiniz Arabayı Seçiniz.";
+        public static string CarSelectionErrorForCarImages = "Lütfen Araba Seçiniz.";
 
         public static string UserRegistered = "Kullanıcı Kaydedildi.";
 
