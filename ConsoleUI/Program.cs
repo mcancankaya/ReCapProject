@@ -91,7 +91,7 @@ namespace ConsoleUI
 
             foreach (var user in userManager.GetAll().Data)
             {
-                Console.WriteLine("User Id : {0}\nFirst Name : {1}\nLast Name : {2}\nEmail : {3}\nPassword: {4}", user.UserId, user.FirstName, user.LastName, user.Email, user.Password);
+                Console.WriteLine("User Id : {0}\nFirst Name : {1}\nLast Name : {2}\nEmail : {3}\nPassword: {4}", user.UserId, user.FirstName, user.LastName, user.Email/*, user.Password*/);
                 Console.WriteLine("------------------------------");
 
             }
@@ -125,7 +125,7 @@ namespace ConsoleUI
 
             user.FirstName = "Deneme";
             user.LastName = "deneme1";
-            user.Password = "ölksdavşlkmaşls";
+            //user.Password = "ölksdavşlkmaşls";
             user.Email = "şövlödsfl";
 
             UserManager userManager = new UserManager(new EfUserDal());

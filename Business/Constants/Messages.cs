@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -52,6 +53,18 @@ namespace Business.Constants
         public static string CarImageLimitExceded = "Resim Yükleme Limiti Aşıldı.";
 
         public static string CarSelectionError { get; internal set; }
+        public static string UserNotFound { get; internal set; }
+        public static string PasswordError { get; internal set; }
+        public static string SuccessfulLogin { get; internal set; }
+        public static string UserAlreadyExists { get; internal set; }
+        public static string AccessTokenCreated { get; internal set; }
+
+        public static string AuthorizationDenied = "Yetkiniz Yok";
+
         public static string CarSelectionErrorForCarImages = "Lütfen Resim Eklemek İstediğiniz Arabayı Seçiniz.";
+
+        public static string UserRegistered = "Kullanıcı Kaydedildi.";
+
+
     }
 }
