@@ -61,14 +61,14 @@ namespace Core.Utilities.Helpers.FileHelper
             {
                 return new SuccessResult();
             }
-            return new ErrorResults("Böyle bir dosya mevcut değil");
+            return new ErrorResult("Böyle bir dosya mevcut değil");
         }
 
         private IResult CheckIfFileEnter(IFormFile file)
         {
             if (file.Length < 0)
             {
-                return new ErrorResults("Dosya girilmemiş");
+                return new ErrorResult("Dosya girilmemiş");
             }
             return new SuccessResult();
         }
@@ -79,7 +79,7 @@ namespace Core.Utilities.Helpers.FileHelper
             {
                 return new SuccessResult();
             }
-            return new ErrorResults("Dosya uzantısı geçerli değil");
+            return new ErrorResult("Dosya uzantısı geçerli değil");
         }
 
         private void CheckIfDirectoryExists(string root)

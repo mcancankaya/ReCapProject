@@ -110,7 +110,7 @@ namespace Business.Concrete
 
             if (result >= 5)
             {
-                return new ErrorResults(Messages.CarImageLimitExceded);
+                return new ErrorResult(Messages.CarImageLimitExceded);
             }
 
             return new SuccessResult();
@@ -124,7 +124,7 @@ namespace Business.Concrete
             {
                 return new SuccessResult();
             }
-            return new ErrorResults();
+            return new ErrorResult();
         }
 
         private IDataResult<List<CarImage>> GetDefaultCarImage(int carId)

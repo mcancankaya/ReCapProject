@@ -27,7 +27,7 @@ namespace Business.Concrete
 
             if (result)
             {
-                return new ErrorResults("hata");
+                return new ErrorResult("hata");
             }
             else
             {

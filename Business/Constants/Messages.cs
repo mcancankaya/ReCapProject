@@ -52,7 +52,7 @@ namespace Business.Constants
         public static string CarImagesListed = "Resimler Listelendi.";
         public static string CarImageLimitExceded = "Resim Yükleme Limiti Aşıldı.";
 
-
+        public static string BrandAlreadyExist = "Marka Mevcut.";
         public static string UserNotFound = "Kullanıcı Bulunamadı.";
 
         public static string PasswordError = "Parola Hatası.";

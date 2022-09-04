@@ -62,7 +62,7 @@ namespace Business.Concrete
         {
             if (_userService.GetByMail(email) != null)
             {
-                return new ErrorResults(Messages.UserAlreadyExists);
+                return new ErrorResult(Messages.UserAlreadyExists);
             }
             return new SuccessResult();
         }
