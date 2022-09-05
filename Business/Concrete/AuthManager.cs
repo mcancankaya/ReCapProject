@@ -9,7 +9,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Business.BusinessAspect.Autofac;
+using Core.Aspects.Autofac.Transaction;
+using Core.Utilities.Business;
 
 namespace Business.Concrete
 {
@@ -25,8 +29,14 @@ namespace Business.Concrete
             _tokenHelper = tokenHelper;
         }
 
+        
         public IDataResult<User> Register(UserForRegisterDto userForRegisterDto, string password)
         {
+            var resultRules = BusinessRules.Run(CheckPasswordMustCharacters(password));
+            if (resultRules !=null)
+            {
+                return new ErrorDataResult<User>(resultRules.Message);
+            }
             byte[] passwordHash, passwordSalt;
             HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
             var user = new User
@@ -73,6 +83,21 @@ namespace Business.Concrete
             var accessToken = _tokenHelper.CreateToken(user, claims);
             return new SuccessDataResult<AccessToken>(accessToken, Messages.AccessTokenCreated);
         }
+
+        //Business Rules
+
+        private IResult CheckPasswordMustCharacters(string password)
+        {
+            string regexPattern = @"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}$";
+            Regex passwordRegex = new Regex(regexPattern);
+            if (!passwordRegex.IsMatch(password))
+            {
+                return new ErrorResult(Messages.PasswordNotContainMustCharacters);
+            }
+
+            return new SuccessResult();
+        }
+
     }
 }
 

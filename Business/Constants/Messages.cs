@@ -66,6 +66,13 @@ namespace Business.Constants
 
         public static string UserRegistered = "Kullanıcı Kaydedildi.";
 
+        public static string PasswordNotContainMustCharacters =
+            "Parolanız en az bir büyük harf, bir küçük harf ve bir rakam içermelidir.";
 
+        public static string ColorExist = "Renk Zaten Mevcut.";
+
+        public static string CustomerAlreadyExist = "Müşteri Zaten Mevcut.";
+        public static string NotSuitableForRentalCar = "Araç Kiralamaya Uygun Değil.";
+        public static string CarRented = "Araç Kiralandı.";
     }
 }

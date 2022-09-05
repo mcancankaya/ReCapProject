@@ -9,6 +9,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Business.BusinessAspect.Autofac;
+using Business.Constants;
+using Core.Utilities.Business;
 
 namespace Business.Concrete
 {
@@ -21,14 +24,18 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(CustomerValidator))]
+        [SecuredOperation("customer.add, admin")]
         public IResult Add(Customer customer)
         {
+            var resultRules = BusinessRules.Run(CheckIfAlreadyExist(customer.CompanyName));
             _customerDal.Add(customer);
             return new SuccessResult();
         }
 
+        [SecuredOperation("customer.delete, admin")]
         public IResult Delete(Customer customer)
         {
+            
             _customerDal.Delete(customer);
             return new SuccessResult();
         }
@@ -37,6 +44,7 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<Customer>>(_customerDal.GetAll());
         }
+
 
         public IDataResult<Customer> GetById(int customerId)
         {
@@ -48,9 +56,24 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(c=>c.UserId==userId));
         }
 
+        [ValidationAspect(typeof(CustomerValidator))]
+        [SecuredOperation("customer.update, admin")]
         public IResult Update(Customer customer)
         {
+            var resultRules = BusinessRules.Run(CheckIfAlreadyExist(customer.CompanyName));
             _customerDal.Update(customer);
+            return new SuccessResult();
+        }
+
+        //Rules
+        private IResult CheckIfAlreadyExist(string companyName)
+        {
+            var result = _customerDal.GetAll(c => c.CompanyName == companyName).Any();
+            if (result != null)
+            {
+                return new ErrorResult(Messages.CustomerAlreadyExist);
+            }
+
             return new SuccessResult();
         }
     }

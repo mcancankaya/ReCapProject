@@ -32,7 +32,7 @@ namespace Core.Aspects.Autofac.Performance
         {
             if (_stopwatch.Elapsed.TotalSeconds > _interval)
             {
-                Debug.WriteLine($"Performance : {invocation.Method.DeclaringType.FullName}.{invocation.Method.Name}-->{_stopwatch.Elapsed.TotalSeconds}");
+                Debug.WriteLine($"[{DateTime.Now}] Performance Alert : {invocation.Method.DeclaringType.FullName}.{invocation.Method.Name} -->{_stopwatch.Elapsed.TotalSeconds}, ");
             }
             _stopwatch.Reset();
         }
