@@ -11,7 +11,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Business.BusinessAspect.Autofac;
 using Business.Constants;
+using Core.Aspects.Autofac.Caching;
 using Core.Utilities.Business;
+using Entities.DTOs;
 
 namespace Business.Concrete
 {
@@ -54,6 +56,12 @@ namespace Business.Concrete
         public IDataResult<List<Customer>> GetByUserId(int userId)
         {
             return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(c=>c.UserId==userId));
+        }
+        [CacheAspect]
+        public IDataResult<List<CustomerDetailDto>> GetCustomerDetails()
+        {
+            var result = _customerDal.geCustomerDetailDtos();
+            return new SuccessDataResult<List<CustomerDetailDto>>(result);
         }
 
         [ValidationAspect(typeof(CustomerValidator))]

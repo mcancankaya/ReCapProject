@@ -13,6 +13,7 @@ using Business.BusinessAspect.Autofac;
 using Business.Constants;
 using Core.Aspects.Autofac.Caching;
 using Core.Utilities.Business;
+using Entities.DTOs;
 
 namespace Business.Concrete
 {
@@ -58,6 +59,12 @@ namespace Business.Concrete
         public IDataResult<Rental> GetById(int rentalId)
         {
             return new SuccessDataResult<Rental>(_rentalDal.Get(r=> r.Id==rentalId));
+        }
+        [CacheAspect]
+        public IDataResult<List<RentalDetailDto>> GetRentalDetails()
+        {
+            var result = _rentalDal.GetRentalDetails();
+            return new SuccessDataResult<List<RentalDetailDto>>(result, Messages.RentalDetailsListed);
         }
 
         [ValidationAspect(typeof(RentalValidator))]

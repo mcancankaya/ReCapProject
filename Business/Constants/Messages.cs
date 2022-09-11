@@ -74,5 +74,7 @@ namespace Business.Constants
         public static string CustomerAlreadyExist = "Müşteri Zaten Mevcut.";
         public static string NotSuitableForRentalCar = "Araç Kiralamaya Uygun Değil.";
         public static string CarRented = "Araç Kiralandı.";
+
+        public static string RentalDetailsListed = "Kiralama Detayları Listelendi.";
     }
 }
