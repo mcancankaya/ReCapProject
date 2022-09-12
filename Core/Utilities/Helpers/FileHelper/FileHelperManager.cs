@@ -47,7 +47,7 @@ namespace Core.Utilities.Helpers.FileHelper
                 return result;
             }
 
-            string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+            string fileName =  Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
 
             CheckIfDirectoryExists(root);
             CreateFile(root + fileName, file);

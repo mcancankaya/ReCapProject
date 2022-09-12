@@ -135,7 +135,7 @@ namespace Business.Concrete
             {
                 CarId = carId,
                 Date = DateTime.Now,
-                ImagePath = "wwwroot\\Images\\Default\\default_image.png"
+                ImagePath = "default_image.png"
             });
             return new SuccessDataResult<List<CarImage>>(carImages);
         }
